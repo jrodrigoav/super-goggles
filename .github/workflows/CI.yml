@@ -3,6 +3,9 @@ name: .NET Core + Webpack
 on:
   push:
     branches: [ principal ]
+    
+  workflow_dispatch:
+  
 jobs:
   build-front:
     strategy:

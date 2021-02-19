@@ -26,13 +26,14 @@ jobs:
         working-directory: ./FrontEnd
       - name: Publish frontend        
         run: npm run publish --if-present
-        working-directory: ./FrontEnd      
-      - name: Upload S3
-        uses: shallwefootball/upload-s3-action@v1.1.3
+        working-directory: ./FrontEnd
+      - name: action-upload-to-s3
+        uses: wixplosives/action-upload-to-s3@v9
         with:
-          aws_key_id: $AWS_ACCESS_KEY_ID
-          aws_secret_access_key: $AWS_SECRET_ACCESS_KEY
-          aws_bucket: super-googles
-          source_dir: ./FrontEnd/dist
-          
+          accessKeyId: $AWS_ACCESS_KEY_ID
+          secretAccessKey: $AWS_SECRET_ACCESS_KEY
+          awsBucket: super-googles
+          sourceFolder: ./FrontEnd/dist
+          # tags to set for uploaded files "Business Unit=core3&gitref=someverylongref"
+          tags: "Team=SiteReliability"         
         

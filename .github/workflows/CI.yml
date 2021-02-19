@@ -27,13 +27,10 @@ jobs:
       - name: Publish frontend        
         run: npm run publish --if-present
         working-directory: ./FrontEnd
-      - name: action-upload-to-s3
-        uses: wixplosives/action-upload-to-s3@v9
+      - name: "Configure AWS Credentials"
+        uses: aws-actions/configure-aws-credentials@v1
         with:
-          accessKeyId: $AWS_ACCESS_KEY_ID
-          secretAccessKey: $AWS_SECRET_ACCESS_KEY
-          awsBucket: super-googles
-          sourceFolder: ./FrontEnd/dist
-          # tags to set for uploaded files "Business Unit=core3&gitref=someverylongref"
-          tags: "Team=SiteReliability"         
-        
+          aws-access-key-id: $AWS_ACCESS_KEY_ID
+          aws-secret-access-key: $AWS_SECRET_ACCESS_KEY
+          aws-region: us-east-2
+          mask-aws-account-id: false  

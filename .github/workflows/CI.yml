@@ -11,7 +11,10 @@ jobs:
     strategy:
       matrix:
         node-version: [14.x]    
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest    
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     steps:
       - uses: actions/checkout@v2        
       - name: Use Node.js ${{ matrix.node-version }}
@@ -30,7 +33,7 @@ jobs:
         uses: Reggionick/s3-deploy@v3.1.0
         with:
           # Directory to deploy
-          folder: ./dist
+          folder: dist
           # Name of AWS Bucket
           bucket: super-googles
           # The destination bucket region

@@ -8,8 +8,8 @@ on:
   
 jobs:
   build-BackEnd:
-     runs-on: ubuntu-latest   
-     steps:
+     runs-on: ubuntu-latest     
+     steps:     
      - uses: actions/checkout@v2
      - name: Setup .NET Core
        uses: actions/setup-dotnet@v1
@@ -27,10 +27,12 @@ jobs:
      - uses: papeloto/action-zip@v1
        with:
           files: ./Backend/dist/
+          recursive: false
+          dest: ./BackEnd/result.zip
      - uses: actions/upload-artifact@v1
        with:
-        name: ${{ "BackEnd_" + $GITHUB_SHA }}"
-        path: ${{ github.workspace }}/result.zip
+        name: ${{ "BackEnd_" + github.sha }}
+        path: ./BackEnd/result.zip
      #- name: Configure AWS credentials
       # uses: aws-actions/configure-aws-credentials@v1
        #with:

@@ -22,7 +22,7 @@ jobs:
      #  run: dotnet build --configuration Release --no-restore
      #  working-directory: ./BackEnd
      - name: Build and Publish to dist folder
-       run: dotnet publish --no-build --output dist     
+       run: dotnet publish --output dist     
        working-directory: ./BackEnd
      - uses: papeloto/action-zip@v1
        with:

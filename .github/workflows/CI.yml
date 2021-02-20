@@ -29,7 +29,7 @@ jobs:
           files: dist/
      - uses: actions/upload-artifact@v1
        with:
-        name: "BackEnd_${{ GITHUB_SHA }}"
+        name: "BackEnd_$GITHUB_SHA"
         path: ${{ github.workspace }}/result.zip
      #- name: Configure AWS credentials
       # uses: aws-actions/configure-aws-credentials@v1

@@ -1,4 +1,4 @@
-name: "Build BackEnd & FrontEnd"
+name: 'Build BackEnd & FrontEnd'
 
 on:
   push:
@@ -31,7 +31,7 @@ jobs:
           dest: ./BackEnd/result.zip
      - uses: actions/upload-artifact@v1
        with:
-        name: ${{ format("BackEnd_{0}", github.sha) }}
+        name: ${{ format('BackEnd_{0}', github.sha) }}
         path: ./BackEnd/result.zip
      #- name: Configure AWS credentials
       # uses: aws-actions/configure-aws-credentials@v1

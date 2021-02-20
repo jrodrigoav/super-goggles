@@ -1,4 +1,4 @@
-name: Webpack + S3
+name: "Build BackEnd & FrontEnd"
 
 on:
   push:
@@ -7,7 +7,42 @@ on:
   workflow_dispatch:
   
 jobs:
-  build-front:
+  build-BackEnd:
+     runs-on: ubuntu-latest   
+     steps:
+     - uses: actions/checkout@v2
+     - name: Setup .NET Core
+       uses: actions/setup-dotnet@v1
+       with:
+         dotnet-version: 5.0.100         
+     - name: Install dependencies       
+       run: dotnet restore
+       working-directory: ./BackEnd
+     - name: Build
+       run: dotnet build --configuration Release --no-restore
+       working-directory: ./BackEnd
+     - name: Build
+       run: dotnet publish --no-build --output dist     
+       working-directory: ./BackEnd
+     - uses: papeloto/action-zip@v1
+       with:
+          files: dist/
+     - uses: actions/upload-artifact@v1
+       with:
+        name: "BackEnd_${{ GITHUB_SHA }}"
+        path: ${{ github.workspace }}/result.zip
+     #- name: Configure AWS credentials
+      # uses: aws-actions/configure-aws-credentials@v1
+       #with:
+        #  aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+         # aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          #aws-region: us-east-2
+     #- name: Copy files to S3 bucket
+     #  working-directory: ./BackEnd
+     #  run: |
+     #     aws s3 sync ./FrontEnd/dist s3://super-googles
+       
+  build-FrontEnd:
     strategy:
       matrix:
         node-version: [14.x]    
@@ -24,12 +59,12 @@ jobs:
       - name: Publish frontend        
         run: npm run publish --if-present
         working-directory: ./FrontEnd
-      - name: Configure AWS credentials from Production account
+      - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-2
-      - name: Copy files to the test website with the AWS CLI
+      - name: Copy files to S3 bucket
         run: |
-          aws s3 sync ./FrontEnd/dist s3://super-googles
+          aws s3 sync ./FrontEnd/dist ${{ secrets.AWS_S3_FRONT_END_BUCKET }}

@@ -24,15 +24,11 @@ jobs:
      - name: Build and Publish to dist folder
        run: dotnet publish --output dist     
        working-directory: ./BackEnd
-     - uses: papeloto/action-zip@v1
-       with:
-          files: ./Backend/dist/
-          recursive: false
-          dest: ./BackEnd/result.zip
      - uses: actions/upload-artifact@v1
        with:
         name: ${{ format('BackEnd_{0}', github.sha) }}
-        path: ./BackEnd/result.zip
+        path: ./BackEnd/dist/**
+        retention-days: 1
      #- name: Configure AWS credentials
       # uses: aws-actions/configure-aws-credentials@v1
        #with:

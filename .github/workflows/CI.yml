@@ -24,7 +24,7 @@ jobs:
      - name: Build and Publish to dist folder
        run: dotnet publish --output dist     
        working-directory: ./BackEnd
-     - uses: actions/upload-artifact@v1
+     - uses: actions/upload-artifact@v2
        with:
         name: ${{ format('BackEnd_{0}', github.sha) }}
         path: ./BackEnd/dist/**

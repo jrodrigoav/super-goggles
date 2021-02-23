@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperGooglesAPI", "SuperGooglesAPI\SuperGooglesAPI.csproj", "{8F6B76C7-4F07-4A70-AAB6-DFD8EA361074}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebasUnitarias", "PruebasUnitarias\PruebasUnitarias.csproj", "{BDFDB98C-8CCD-49C8-8425-1CF67DECE18F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,17 @@ Global
 		{8F6B76C7-4F07-4A70-AAB6-DFD8EA361074}.Release|x64.Build.0 = Release|Any CPU
 		{8F6B76C7-4F07-4A70-AAB6-DFD8EA361074}.Release|x86.ActiveCfg = Release|Any CPU
 		{8F6B76C7-4F07-4A70-AAB6-DFD8EA361074}.Release|x86.Build.0 = Release|Any CPU
+		{BDFDB98C-8CCD-49C8-8425-1CF67DECE18F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDFDB98C-8CCD-49C8-8425-1CF67DECE18F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDFDB98C-8CCD-49C8-8425-1CF67DECE18F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BDFDB98C-8CCD-49C8-8425-1CF67DECE18F}.Debug|x64.Build.0 = Debug|Any CPU
+		{BDFDB98C-8CCD-49C8-8425-1CF67DECE18F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BDFDB98C-8CCD-49C8-8425-1CF67DECE18F}.Debug|x86.Build.0 = Debug|Any CPU
+		{BDFDB98C-8CCD-49C8-8425-1CF67DECE18F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDFDB98C-8CCD-49C8-8425-1CF67DECE18F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDFDB98C-8CCD-49C8-8425-1CF67DECE18F}.Release|x64.ActiveCfg = Release|Any CPU
+		{BDFDB98C-8CCD-49C8-8425-1CF67DECE18F}.Release|x64.Build.0 = Release|Any CPU
+		{BDFDB98C-8CCD-49C8-8425-1CF67DECE18F}.Release|x86.ActiveCfg = Release|Any CPU
+		{BDFDB98C-8CCD-49C8-8425-1CF67DECE18F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

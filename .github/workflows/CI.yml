@@ -24,6 +24,8 @@ jobs:
      - name: Build and Publish to dist folder
        run: dotnet publish --output dist     
        working-directory: ./BackEnd
+     - name: Test
+       run: dotnet test --no-build --verbosity normal
      - uses: actions/upload-artifact@v2
        with:
         name: ${{ format('BackEnd_{0}', github.sha) }}

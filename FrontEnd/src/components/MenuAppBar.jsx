@@ -32,7 +32,7 @@ export default function MenuAppBar() {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" className={classes.title}>
-                        <Button onClick={() => history.push("/")}>Unotalkz</Button>
+                        <Button onClick={() => history.push("/")}>Unotalk 2021-02-25</Button>
                     </Typography>
                     <Button color="inherit" onClick={() => history.push("/Usuarios")}>Usuarios</Button>
                     <Button color="inherit" onClick={() => history.push("/Productos")}>Productos</Button>

@@ -69,3 +69,6 @@ jobs:
       - name: Copy files to S3 bucket
         run: |
           aws s3 sync ./FrontEnd/dist ${{ secrets.AWS_S3_FRONT_END_BUCKET }}
+      - name: Invalidate Cloudfront
+        run: |
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CLOUDFRONT_DISTRIBUITON_ID }} --paths "/index.html" "/js/*" "/assets/images/*"
